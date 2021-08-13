@@ -1,3 +1,5 @@
+const cron = require('node-cron');
+
 const puppeteer = require('puppeteer')
 var fs = require('fs')
 
@@ -87,8 +89,9 @@ async function getItems(){
 
 // TO CHANGE CRON TIME SCHEDULE
 // https://www.npmjs.com/package/node-cron
-cron.schedule('*/10 * * * *', function() {
+cron.schedule('* * * * *', function() {
   getItems()
+  console.log("every minute")
 });
 
 
