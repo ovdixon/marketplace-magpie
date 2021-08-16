@@ -61,19 +61,21 @@ async function getItems(){
     let bodyHTML = await page.evaluate(() => document.body.outerHTML);
     let searchResult = JSON.parse(bodyHTML.split(/(?:"marketplace_search":|,"marketplace_seo_page")+/)[2]);
     let items = searchResult["feed_units"]["edges"]
-  items.forEach((val, index)=>{
-    var ID = val['node']['listing']['id'];
-    var link = `https://www.facebook.com/marketplace/item/${val['node']['listing']['id']}`;
-    var title = val['node']['listing']['marketplace_listing_title'];
-    var price = val['node']['listing']['listing_price']['formatted_amount'];
-    var item = {title: title, price: price, link: link}
-    if (arrayOfItems.pastItems.includes(ID)){
-    } else {
-      arrayOfItems.pastItems.push(ID)
-      newItems.push(item);  
-      console.log(item)
-    } 
-  });
+    if (items.length > 1){
+      items.forEach((val, index)=>{
+        var ID = val['node']['listing']['id'];
+        var link = `https://www.facebook.com/marketplace/item/${val['node']['listing']['id']}`;
+        var title = val['node']['listing']['marketplace_listing_title'];
+        var price = val['node']['listing']['listing_price']['formatted_amount'];
+        var item = {title: title, price: price, link: link}
+        if (arrayOfItems.pastItems.includes(ID)){
+        } else {
+          arrayOfItems.pastItems.push(ID)
+          newItems.push(item);  
+          console.log(item)
+        } 
+      });
+    }
   if (newItems.length>0){
     sendEmail(emailRecipient, searchTerms[i], newItems);
   } else {
@@ -89,10 +91,6 @@ async function getItems(){
 
 // TO CHANGE CRON TIME SCHEDULE
 // https://www.npmjs.com/package/node-cron
-cron.schedule('* * * * *', function() {
+cron.schedule('*/10 * * * *', function() {
   getItems()
-  console.log("every minute")
 });
-
-
-
