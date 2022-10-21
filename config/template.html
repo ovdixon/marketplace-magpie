@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+        body {
+            font-family: 'Space Mono', monospace;
+        }
+
+        main {
+            padding: 8px 24px 32px 40px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 14px;
+            color: grey;   
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            overflow: auto;
+        }
+
+        li img {
+            width: 100px;
+            height: auto;
+            float: left;
+            margin: 0 16px 0 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+        h1 {
+            font-size: 20px
+        }
+
+        h2 {
+            font-size: 14px
+        }
+
+        p {
+            font-size: 10px;
+        }
+
+        li img {
+            width:80px;
+        }
+
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <main>
+            {{#each items}}
+            <div>
+                <h2>{{@key}}</h2>
+                <ul>
+                {{#each this}}
+                    <li>
+                        <img src={{this.image}}>
+                        <p><a href={{this.link}}>{{this.title}}</a></p>
+                        <p>{{this.price}}</p>
+                    </li>
+                {{/each}}    
+                </ul>
+            </div>
+            {{/each}} 
+        </main>
+    </body>
+  </html>

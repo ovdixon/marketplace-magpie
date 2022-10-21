@@ -1,0 +1,27 @@
+{
+  "name": "marketplace-scraper-bot",
+  "version": "1.0.0",
+  "description": "Setup email alerts for new items on Facebook Marketplace.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovdixon/marketplace-scraper-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ovdixon/marketplace-scraper-bot/issues"
+  },
+  "homepage": "https://github.com/ovdixon/marketplace-scraper-bot#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "^1.1.3",
+    "config": "^3.3.8",
+    "dotenv": "^16.0.3",
+    "node-persist": "^3.1.0"
+  }
+}
