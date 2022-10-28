@@ -2,7 +2,7 @@
     "Searches": [
         {
             "term": "bicycle",
-            "location": "nyc"
+            "location": "sydney"
         },
         {
             "term": "car ",
