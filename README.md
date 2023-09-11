@@ -1,4 +1,4 @@
-# Marketplace Scraper
+# Marketplace Magpie
 Setup email alerts for new items on Facebook Marketplace. Expensive due to level of proxies required to scrape.
 
 ## Accounts
