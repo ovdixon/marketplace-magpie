@@ -1,0 +1,12 @@
+{   
+    "Searches": [
+        {
+            "term": "bicycle",
+            "location": "sydney"
+        },
+        {
+            "term": "car ",
+            "location": "la"
+        }
+    ]
+}
